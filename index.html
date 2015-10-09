@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Row Counter</title>
+
+    <!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+	<!-- datatables -->
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.4/css/jquery.dataTables.min.css">	
+
+	<!-- class styles -->
+	<link rel="stylesheet" href="../css/csci343.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- custom local styles -->
+    <style>
+        body{background-color: #33ccff; padding: 10px;}
+        .col-md-6{background-color: #fff; padding: 10px; border: 10px solid #ececec; text-align: center;}
+        h2{margin: 0;}
+        h3{margin: 0; margin-bottom: 24px;}
+        .box{margin-left: -10px;}
+        .box2{margin-left: -10px; margin-top: -10px;}
+        #rowCount{font: 200px times new roman;}
+        #repeatCount{font: 100px times new roman;}
+        #pink{background-color: #FFE0F0; color: #FFE0F0;}
+        #blue{background-color: #33ccff; color: #33ccff;}
+        #green{background-color: #C2FFA3; color: #C2FFA3;}
+        #purple{background-color: #DCA6FF; color: #DCA6FF;}
+        #orange{background-color: #FFC671; color: #FFC671;}
+        #white{background-color: #fff; color: #fff;}
+	</style>
+
+  	</head>
+  	<body>
+		<!-- page content -->
+		<div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h2>Rows</h2>
+                            <div id="rowCount">
+                                0
+                            </div>
+                            <button type="button" class="btn btn-default" id="incRow">+</button>
+                            <button type="button" class="btn btn-default" id="decRow">-</button>
+			    <button type="button" class="btn btn-default" id="clearRow">x</button>
+                        </div>
+                        <div class="col-md-6 box">
+                            <h2>Pattern Repeats</h2>
+                            <div id="repeatCount">
+                                0
+                            </div>
+                            <button type="button" class="btn btn-default" id="incRepeat">+</button>
+                            <button type="button" class="btn btn-default" id="decRepeat">-</button>
+			    <button type="button" class="btn btn-default" id="clearRepeat">x</button>
+                        </div>
+                        <div class="col-md-6 box2">
+                            <h3>Change the Background Color!</h3>
+                            <button type="button" class="btn btn-default" id="pink">&hearts;</button>
+                            <button type="button" class="btn btn-default" id="blue">&hearts;</button>
+                            <button type="button" class="btn btn-default" id="green">&hearts;</button>
+                            <button type="button" class="btn btn-default" id="purple">&hearts;</button>
+                            <button type="button" class="btn btn-default" id="orange">&hearts;</button>
+                            <button type="button" class="btn btn-default" id="white">&hearts;</button>
+                        </div>
+                    </div>
+		</div>
+
+		<!-- jquery -->
+		<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>	
+
+		<!-- datatables -->	
+		<script src="https://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>	
+
+		<!-- class scipts -->
+		<script src="../js/csci343.js"></script>	
+		
+		<!-- custom local javascript -->
+		<script>
+    		  var row = 0;
+                  var inc_row = 0;
+
+		  $('#incRow').click(function() 
+			{
+                            row++;
+                            $('#rowCount').text(row);
+                        }
+                    );
+                  $('#incRepeat').click(function() 
+			{
+                            inc_row++;
+                            $('#repeatCount').text(inc_row);
+                        }
+                    );
+                  $('#decRow').click(function() 
+			{
+                            if (row != 0)
+                            {
+                                row--;
+                                $('#rowCount').text(row);
+                            }
+                            
+                        }
+                    );
+                  $('#decRepeat').click(function() 
+			{
+                            if (inc_row != 0)
+                            {
+                                inc_row--;
+                                $('#repeatCount').text(inc_row);
+                            }
+                        }
+                    );
+		  $('#clearRow').click(function() 
+			{
+                            row = 0;
+                            $('#rowCount').text(row);
+                        }
+                    );
+		  $('#clearRepeat').click(function() 
+			{
+                            inc_row = 0;
+                            $('#repeatCount').text(inc_row);
+                        }
+                    );
+		  
+                  $('#pink').click(function(){document.body.style.backgroundColor = "#FFE0F0";});
+                  $('#blue').click(function(){document.body.style.backgroundColor = "#33ccff";});
+                  $('#green').click(function(){document.body.style.backgroundColor = "#C2FFA3";});
+                  $('#purple').click(function(){document.body.style.backgroundColor = "#DCA6FF";});
+                  $('#orange').click(function(){document.body.style.backgroundColor = "#FFC671";});
+                  $('#white').click(function(){document.body.style.backgroundColor = "#fff";});
+		</script>
+	</body>
+</html>
